@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/* ── Dark mode: class-based ─────────────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Static brand palette ───────────────────────────────────── */
+@theme {
+  /* Espresso — deep coffee browns */
+  --color-espresso-50:  #f7f2ec;
+  --color-espresso-100: #ebe0d3;
+  --color-espresso-200: #d4c1a8;
+  --color-espresso-300: #b89e78;
+  --color-espresso-400: #9c7d54;
+  --color-espresso-500: #7d6140;
+  --color-espresso-600: #634a2e;
+  --color-espresso-700: #4a3723;
+  --color-espresso-800: #322519;
+  --color-espresso-900: #1f1710;
+  --color-espresso-950: #120c08;
+
+  /* Caramel — warm amber / gold */
+  --color-caramel-50:  #fdf8ed;
+  --color-caramel-100: #f8edcd;
+  --color-caramel-200: #f0d895;
+  --color-caramel-300: #e7be5d;
+  --color-caramel-400: #dfa738;
+  --color-caramel-500: #c4861f;
+  --color-caramel-600: #a36618;
+  --color-caramel-700: #834c18;
+  --color-caramel-800: #6c3d1a;
+  --color-caramel-900: #5b3319;
+
+  /* Cream — soft warm whites */
+  --color-cream-50:  #fdfcfa;
+  --color-cream-100: #faf7f2;
+  --color-cream-200: #f5efe4;
+  --color-cream-300: #ede2cf;
+  --color-cream-400: #e0ccb0;
+  --color-cream-500: #d1b388;
+  --color-cream-600: #bd9866;
+  --color-cream-700: #9f7b4f;
+  --color-cream-800: #836442;
+  --color-cream-900: #6c5439;
+
+  /* Sage — muted green accent */
+  --color-sage-50:  #f4f6f3;
+  --color-sage-100: #e6ebe3;
+  --color-sage-200: #cfd8ca;
+  --color-sage-300: #a9bca1;
+  --color-sage-400: #7e9a73;
+  --color-sage-500: #5e7c53;
+  --color-sage-600: #4a6342;
+  --color-sage-700: #3b5036;
+  --color-sage-800: #30402d;
+  --color-sage-900: #273526;
+
+  /* Typography */
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Shadows */
+  --shadow-soft: 0 2px 8px rgba(31, 23, 16, 0.06);
+  --shadow-card: 0 4px 24px rgba(31, 23, 16, 0.08);
+  --shadow-elevated: 0 12px 48px rgba(31, 23, 16, 0.14);
+
+  /* Radius */
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+/* ── Semantic tokens (change with dark mode) ───────────────── */
+:root {
+  --color-bg: #faf7f2;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f5f0e8;
+  --color-text: #1f1710;
+  --color-text-muted: #7a6b60;
+  --color-border: #e5dccf;
+  --color-accent: #c4861f;
+}
+
+.dark {
+  --color-bg: #16110d;
+  --color-surface: #1f1710;
+  --color-surface-hover: #2a1f17;
+  --color-text: #f5f0eb;
+  --color-text-muted: #a89a8e;
+  --color-border: #322519;
+  --color-accent: #e7be5d;
+}
+
+/* Map semantic tokens into Tailwind's theme system */
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-border: var(--color-border);
+  --color-accent: var(--color-accent);
+}
+
+/* ── Base styles ───────────────────────────────────────────── */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth theme transition on key elements */
+body,
+header,
+footer,
+nav {
+  transition: background-color 300ms ease, border-color 300ms ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
