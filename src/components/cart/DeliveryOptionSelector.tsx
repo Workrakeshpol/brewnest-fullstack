@@ -1,5 +1,6 @@
 import { Store, Bike } from 'lucide-react';
-import { useCart, type DeliveryType } from '../../contexts/CartContext';
+import { useCart } from '../../contexts/CartContext';
+import type { DeliveryType } from '../../types';
 import { cn } from '../../lib/utils';
 
 interface DeliveryOptionSelectorProps {

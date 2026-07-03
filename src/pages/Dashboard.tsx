@@ -57,6 +57,8 @@ import { cn } from '../lib/utils';
 import ManagerDashboard from '../components/dashboard/ManagerDashboard';
 
 export default function Dashboard() {
+  const { role } = useAuth();
+  const [demoManagerMode, setDemoManagerMode] = useState(false);
   const [activeTab, setActiveTab] = useState<DashboardTab>('profile');
   const { profile, orders, reservations, addresses: initialAddresses, notifications: initialNotifications, loading, refresh } = useDashboardData();
   const [notifications, setNotifications] = useState<AppNotification[]>(initialNotifications);

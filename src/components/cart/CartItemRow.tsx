@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { Trash2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import QuantitySelector from './QuantitySelector';
-import { useCart, type CartItem } from '../../contexts/CartContext';
+import { useCart } from '../../contexts/CartContext';
+import type { CartItem } from '../../types';
 
 interface CartItemRowProps {
   item: CartItem;
